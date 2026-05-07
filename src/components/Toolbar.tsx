@@ -9,7 +9,7 @@ interface ToolbarProps {
   zoomLevel: number
 }
 
-const Toolbar: React.FC<ToolbarProps> = ({ fileName, onFileSelect, onZoomIn, onZoomOut, onResetZoom, zoomLevel }) => {
+const Toolbar: React.FC<ToolbarProps> = ({ fileName, onFileSelect, onZoomIn, onZoomOut }) => {
   return (
     <div className="flex items-center justify-between h-12 px-4 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
       <div className="flex items-center">

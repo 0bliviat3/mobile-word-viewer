@@ -31,11 +31,11 @@ const useDocxParser = () => {
       const arrayBuffer = await file.arrayBuffer()
       const result = await mammoth.convertToHtml({ arrayBuffer })
       
-      // Extract metadata from the document
+      // Extract metadata from the document - mammoth.js doesn't expose metadata in this way
       const metadata = {
-        title: result.metadata?.title || undefined,
-        author: result.metadata?.author || undefined,
-        pageCount: result.metadata?.pageCount || undefined
+        title: undefined,
+        author: undefined,
+        pageCount: undefined
       }
       
       // Process messages in the document

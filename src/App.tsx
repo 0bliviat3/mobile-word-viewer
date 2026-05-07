@@ -3,7 +3,6 @@ import FileSelector from './components/FileSelector'
 import DocumentView from './components/DocumentView'
 import Toolbar from './components/Toolbar'
 import useDocxParser from './hooks/useDocxParser'
-import useFileAccess from './hooks/useFileAccess'
 import useZoomControl from './hooks/useZoomControl'
 import LoadingSpinner from './components/LoadingSpinner'
 // import ErrorBoundary from './components/ErrorBoundary'
@@ -15,8 +14,7 @@ const App: React.FC = () => {
   const [zoomLevel, setZoomLevel] = useState<number>(1)
   
   const { parseDocxFile, isLoading, error } = useDocxParser()
-  const { readFile } = useFileAccess()
-  const { zoomIn, zoomOut, resetZoom } = useZoomControl(zoomLevel, setZoomLevel)
+  const { zoomIn, zoomOut, resetZoom } = useZoomControl(setZoomLevel)
 
   // Handle file selection and parsing
   const handleFileSelected = async (file: File) => {
